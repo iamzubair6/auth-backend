@@ -126,7 +126,11 @@ Start the server:
 
 ```sh
 yarn start
-# or
+```
+
+or
+
+```sh
 npm run start
 ```
 
@@ -134,7 +138,11 @@ For development, use:
 
 ```sh
 yarn dev
-# or
+```
+
+or
+
+```sh
 npm run dev
 ```
 
