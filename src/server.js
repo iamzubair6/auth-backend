@@ -4,22 +4,28 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const cors = require('cors');
+const swaggerOptions = require('./swager/swaggerOptions');
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 const app = express();
 
+//allow orifgin
 app.use(cors({
     origin: '*',
 }));
 app.use(bodyParser.json());
 
-//allow orifgin
+// Swagger configuration
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-// Routes
+//auth Routes
 app.use('/auth', authRoutes);
-app.get('/', (req, res) => {
-    res.send('Hello World');
-}
-);
+// app.get('/', (req, res) => {
+//     res.send('Hello World');
+// }
+// );
 // app.use('/api', protectedRoutes);
 
 // Start server
