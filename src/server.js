@@ -18,14 +18,14 @@ app.use(bodyParser.json());
 
 // Swagger configuration
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use('/swager', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 //auth Routes
 app.use('/auth', authRoutes);
-// app.get('/', (req, res) => {
-//     res.send('Hello World');
-// }
-// );
+app.get('/', (req, res) => {
+    res.send('Hello World');
+}
+);
 // app.use('/api', protectedRoutes);
 
 // Start server
